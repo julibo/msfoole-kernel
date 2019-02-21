@@ -1,0 +1,44 @@
+{
+  "name": "julibo/msfoole-kernel",
+  "description": "基于msfoole微服务框架的内核工程",
+  "type": "project",
+  "keywords": [
+    "msfoole-kernel",
+    "msfoole",
+    "swoole"
+  ],
+  "homepage": "http://msfoole.julibo.com",
+  "license": "Apache-2.0",
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.org"
+    }
+  },
+  "authors": [
+    {
+      "name": "carson",
+      "email": "yuzhanwei@aliyun.com",
+      "homepage": "http://msfoole.julibo.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "julibo/msfoole-core": "dev-develop"
+  },
+  "require-dev": {
+    "easyswoole/swoole-ide-helper": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {},
+  "config": {
+    "vendor-dir": "vendor",
+    "preferred-install": "dist"
+  }
+}
