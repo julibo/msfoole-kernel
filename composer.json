@@ -1,6 +1,6 @@
 {
   "name": "julibo/msfoole-kernel",
-  "description": "基于msfoole微服务框架的内核工程",
+  "description": "基于msfoole微服务API框架的内核工程",
   "type": "project",
   "keywords": [
     "msfoole-kernel",
@@ -24,7 +24,7 @@
     }
   ],
   "require": {
-    "julibo/msfoole-core": "dev-develop"
+    "julibo/msfoole-core": "dev-master"
   },
   "require-dev": {
     "easyswoole/swoole-ide-helper": "dev-master"
