@@ -1,7 +1,7 @@
 <?php
 namespace App\Controller\Index;
 
-use Julibo\Msfoole\ClientController as Controller;
+use Julibo\Msfoole\AloneController as Controller;
 use App\Service\Test as TestService;
 
 class Index extends Controller

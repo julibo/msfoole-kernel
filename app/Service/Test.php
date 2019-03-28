@@ -1,6 +1,7 @@
 <?php
 namespace App\Service;
 
+use Swoole\Coroutine as co;
 
 class Test extends BaseService
 {
@@ -12,7 +13,6 @@ class Test extends BaseService
     public function hello()
     {
         $this->log()->info('我来个去你的');
-        $data = $this->serverCall('Test', 'Index/Index/index', []);
-        return $data['data'];
+        return time();
     }
 }
