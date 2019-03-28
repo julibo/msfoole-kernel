@@ -12,6 +12,10 @@ abstract class BaseService
      */
     protected $request;
 
+    /**
+     * BaseService constructor.
+     * @param HttpRequest $request
+     */
     public function __construct(HttpRequest $request)
     {
         $this->request = $request;
@@ -25,7 +29,7 @@ abstract class BaseService
     /**
      * @return mixed
      */
-    protected function log()
+    final protected function log()
     {
         return Log::setEnv($this->request);
     }

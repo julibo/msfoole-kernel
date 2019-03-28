@@ -11,7 +11,7 @@ class Test extends BaseService
 
     public function hello()
     {
-        $this->log()->info('我来个去');
+        $this->log()->info('我来个去你的');
         return time();
     }
 }
