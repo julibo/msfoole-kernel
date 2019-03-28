@@ -12,6 +12,7 @@ class Test extends BaseService
     public function hello()
     {
         $this->log()->info('我来个去你的');
+        $this->serverCall('Test', 'Index/Index/index', []);
         return time();
     }
 }
