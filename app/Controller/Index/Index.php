@@ -2,11 +2,18 @@
 namespace App\Controller\Index;
 
 use Julibo\Msfoole\ClientController as Controller;
+use App\Service\Test as TestService;
 
 class Index extends Controller
 {
+    /**
+     * @var
+     */
+    private $service;
+
     public function init()
     {
+        $this->service = new TestService($this->request);
     }
 
     public function health()
@@ -18,4 +25,15 @@ class Index extends Controller
     {
         return time();
     }
+
+    public function test()
+    {
+        return ['result'=>[], 'pageSize'=>10, 'pageNo'=>1, 'total'=>0];
+    }
+
+    public function hello()
+    {
+        $this->service->hello();
+    }
+
 }
