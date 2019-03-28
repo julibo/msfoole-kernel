@@ -2,10 +2,13 @@
 
 namespace App\Service;
 
-use Julibo\Msfoole\Config;
+
+use Julibo\Msfoole\Facade\Config;
 use Julibo\Msfoole\Facade\Log;
+use Julibo\Msfoole\Helper;
 use Julibo\Msfoole\HttpClient;
 use Julibo\Msfoole\HttpRequest;
+use Julibo\Msfoole\Exception;
 
 abstract class BaseService
 {
@@ -45,7 +48,15 @@ abstract class BaseService
         $cli = new HttpClient($sideCar['call_ip'], $sideCar['call_port'], $permit, $identification, $token);
         $uri = sprintf("/%s/%s", $serverName, $uri);
         $result = $cli->post($uri, $params);
-        return $result;
+        if (isset($result['errCode']) && $result['errCode'] == 0 && isset($result['statusCode']) && $result['statusCode'] == 200) {
+            if (Helper::isJson($result['data']) != false) {
+                return json_decode($result['data'], true);
+            } else {
+                return $result['data'];
+            }
+        } else {
+            throw new Exception('接口异常', 601);
+        }
     }
 
 }

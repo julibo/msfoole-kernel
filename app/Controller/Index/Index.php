@@ -33,7 +33,8 @@ class Index extends Controller
 
     public function hello()
     {
-        $this->service->hello();
+        $result = $this->service->hello();
+        return $result;
     }
 
 }
