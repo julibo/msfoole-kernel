@@ -1,0 +1,25 @@
+version: '3'
+services:
+    redis:
+        image: redis:4
+        ports:
+            - 6379:6379/tcp
+    msfoole:
+        image: julibo/msfoole:0.1.1
+        # build: ./
+        environment:
+            APPLICATION__NAME: 'msfoole-kernel'      
+        ports:
+            - 9111:9111/tcp
+            - 9222:9222/tcp
+            - 9333:9333/tcp
+            - 9555:9555/tcp
+        volumes:
+            - ./:/data/wwwroot/msfoole-kernel:rw
+        links:
+            - redis   
+        stdin_open: true 
+        tty: true
+        privileged: true
+        # restart: always
+        entrypoint: ["/data/wwwroot/msfoole-kernel/msfoole", "start"]
